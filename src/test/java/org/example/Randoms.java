@@ -3,6 +3,7 @@ package org.example;
 import java.util.Random;
 
 public class Randoms {
+
     public static String randomString(int targetStringLength) {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
