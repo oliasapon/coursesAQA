@@ -15,7 +15,7 @@ public class AppTest extends Settings {
     }
 
     @Test
-    public void createContactPerson() {
+    public void createContactPersonTest() {
         signIn();
         waitUntilVisible(By.linkText("Контрагенты")).click();
         waitUntilVisible(By.linkText("Контактные лица")).click();
@@ -42,7 +42,7 @@ public class AppTest extends Settings {
     }
 
     @Test
-    public void projectCreation() {
+    public void projectCreationTest() {
         String projectNameString = Randoms.randomString(20);
         signIn();
         waitUntilVisible(By.linkText("Проекты")).click();

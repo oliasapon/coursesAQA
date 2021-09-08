@@ -16,13 +16,13 @@ public class AppTest extends Settings {
     }
 
     @Test
-    public void successfulAuthorization() {
+    public void successfulAuthorizationTest() {
         signIn();
         waitUntilVisible(By.xpath("//h1[text()='Кабінет читача']"));
     }
 
     @Test
-    public void successfulBookSearch() {
+    public void successfulBookSearchTest() {
         signIn();
         waitUntilVisible(By.xpath("//div[@class='page oh']//div[@class='col-panel-content sub-menu']//a[text()='Електронний каталог']"));
         waitUntilVisible(By.xpath("(//a[contains(text(),'Ресурси бібліотеки')])[2]")).click();
