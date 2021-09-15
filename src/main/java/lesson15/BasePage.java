@@ -1,4 +1,4 @@
-package lesson13;
+package lesson15;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BasePage {
     protected WebDriver driver;
@@ -27,6 +28,10 @@ public class BasePage {
 
     public void assertEqualsByGetAttribute(WebElement element, String value) {
         assertEquals(element.getAttribute("value"), value);
+    }
+
+    public void assertEqualsByGetText(WebElement element, String value) {
+        assertEquals(element.getText(), value);
     }
 
     public void moveToElem(WebElement element) {

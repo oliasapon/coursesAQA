@@ -1,6 +1,7 @@
-package lesson13.task1;
+package lesson15.task1;
 
-import lesson13.BasePage;
+import io.qameta.allure.Step;
+import lesson15.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,16 +21,19 @@ public class SignInPage extends BasePage {
         super(driver);
     }
 
+    @Step("Ввод логина пользователя.")
     public SignInPage enterLogin(String login) {
         waitUntilVisible(inputLogin).sendKeys(login);
         return this;
     }
 
+    @Step("Ввод пароля пользователя.")
     public SignInPage enterPassword(String password) {
         waitUntilVisible(inputPassword).sendKeys(password);
         return this;
     }
 
+    @Step("Нажатие на кнопку \"Войти\".")
     public void clickLoginButton() {
         waitUntilVisible(buttonSignIn).click();
     }

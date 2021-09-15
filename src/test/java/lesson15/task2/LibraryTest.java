@@ -1,27 +1,30 @@
-package org.example.task2;
+package lesson15.task2;
 
-import lesson13.task2.MainPage;
-import lesson13.task2.SignInPage;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-public class AppTest2 extends Settings2 {
+public class LibraryTest extends LibraryBaseSettings {
 
     public void signIn() {
         new SignInPage(driver)
                 .clickLinkSignIn()
                 .checkTitleSignIn("Вхід")
                 .enterMail("ya.petrenko@gmail.com")
+                .checkEnteredMail("ya.petrenko@gmail.com")
                 .enterPassword("test1234")
+                .checkEnteredPassword("test1234")
                 .clickButtonSignIn();
     }
 
+    @DisplayName("Успешная авторизация в кабинете электронной библиотеки.")
     @Test
     public void successfulAuthorizationTest() {
         signIn();
         new MainPage(driver)
-                .checkTitlePage();
+                .checkTitlePage("КАБІНЕТ ЧИТАЧА");
     }
 
+    @DisplayName("Успешный поиск заданного значения в электронном каталоге библиотеки.")
     @Test
     public void successfulBookSearchTest() {
         signIn();
@@ -32,6 +35,7 @@ public class AppTest2 extends Settings2 {
                 .checkTitleElectronicCatalog()
                 .clearBookName()
                 .enterBookName("Кобзар")
+                .checkEnteredBookName("Кобзар")
                 .clickButtonSearch()
                 .checkFoundValue("Кобзар");
     }

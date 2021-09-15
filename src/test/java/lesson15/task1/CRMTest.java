@@ -1,11 +1,10 @@
-package org.example.task1;
+package lesson15.task1;
 
-import lesson13.task1.MainPage;
-import lesson13.task1.SignInPage;
-import org.example.Randoms;
-import org.junit.Test;
+import lesson15.Randoms;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-public class AppTest1 extends Settings1 {
+public class CRMTest extends CRMBaseSettings {
 
     public void signIn() {
         new SignInPage(driver)
@@ -14,6 +13,7 @@ public class AppTest1 extends Settings1 {
                 .clickLoginButton();
     }
 
+    @DisplayName("Создание нового контактного лица.")
     @Test
     public void createContactPersonTest() {
         signIn();
@@ -36,9 +36,11 @@ public class AppTest1 extends Settings1 {
                 .checkEnteredPosition("Эколог")
                 .clickButtonSaveAndClose()
                 .checkSubtitlePage("Все Контактные лица")
-                .checkMessageContactPersonSaved();
+                .checkMessageContactPersonSaved("Контактное лицо сохранено");
+
     }
 
+    @DisplayName("Создание нового проекта.")
     @Test
     public void creationProjectTest() {
         String projectNameString = Randoms.randomString(20);
@@ -68,6 +70,6 @@ public class AppTest1 extends Settings1 {
                 .checkSelectedManager("Антонов Дмитрий")
                 .clickButtonSaveAndClose()
                 .checkSubtitlePage("Все Проекты")
-                .checkMessageProjectSaved();
+                .checkMessageProjectSaved("Проект сохранен");
     }
 }

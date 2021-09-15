@@ -1,6 +1,7 @@
-package lesson13.task1.createContactPerson;
+package lesson15.task1.createContactPerson;
 
-import lesson13.BasePage;
+import io.qameta.allure.Step;
+import lesson15.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,61 +35,73 @@ public class CreateContactPersonPage extends BasePage {
         super(driver);
     }
 
+    @Step("Проверка подзаголовка страницы \"Создать контактное лицо\".")
     public CreateContactPersonPage checkLabelPage(String value) {
         waitTextToBe(subtitlePage, value);
         return this;
     }
 
+    @Step("Ввод фамилии нового контактного лица.")
     public CreateContactPersonPage enterLastName(String lastName) {
         waitUntilVisible(inputLastName).sendKeys(lastName);
         return this;
     }
 
+    @Step("Проверка введенной фамилии нового контактного лица.")
     public CreateContactPersonPage checkEnteredLastName(String lastName) {
         assertEqualsByGetAttribute(inputLastName, lastName);
         return this;
     }
 
+    @Step("Ввод имени нового контактного лица.")
     public CreateContactPersonPage enterFirstName(String firstName) {
         waitUntilVisible(inputFirstName).sendKeys(firstName);
         return this;
     }
 
+    @Step("Проверка введенного имени нового контактного лица.")
     public CreateContactPersonPage checkEnteredFirstName(String firstName) {
         assertEqualsByGetAttribute(inputFirstName, firstName);
         return this;
     }
 
+    @Step("Нажатие на поле ввода организации.")
     public CreateContactPersonPage clickFieldOrganization() {
         waitUntilVisible(fieldOrganization).click();
         return this;
     }
 
+    @Step("Ввод заданной организации.")
     public CreateContactPersonPage enterOrganization(String organization) {
         waitUntilVisible(inputOrganization).sendKeys(organization);
         return this;
     }
 
+    @Step("Проверка введенной организации.")
     public CreateContactPersonPage checkEnteredOrganization(String organization) {
         assertEqualsByGetAttribute(inputOrganization, organization);
         return this;
     }
 
+    @Step("Нажатие на необходимую организацию.")
     public CreateContactPersonPage clickChooseOrganization() {
         waitUntilVisible(chooseOrganization).click();
         return this;
     }
 
+    @Step("Ввод должности нового контактного лица.")
     public CreateContactPersonPage enterPosition(String position) {
         waitUntilVisible(inputPosition).sendKeys(position);
         return this;
     }
 
+    @Step("Проверка должности нового контактного лица.")
     public CreateContactPersonPage checkEnteredPosition(String position) {
         assertEqualsByGetAttribute(inputPosition, position);
         return this;
     }
 
+    @Step("Нажатие на кнопку \"Сохранить и закрыть\".")
     public AllContactPersonsPage clickButtonSaveAndClose() {
         waitUntilVisible(buttonSaveAndClose).click();
         return new AllContactPersonsPage(driver);

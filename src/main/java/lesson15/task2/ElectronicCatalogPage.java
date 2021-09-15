@@ -1,6 +1,7 @@
-package lesson13.task2;
+package lesson15.task2;
 
-import lesson13.BasePage;
+import io.qameta.allure.Step;
+import lesson15.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,27 +24,38 @@ public class ElectronicCatalogPage extends BasePage {
         super(driver);
     }
 
+    @Step("Проверка видимости подзаголовка страницы \"Электронный каталог\".")
     public ElectronicCatalogPage checkTitleElectronicCatalog() {
         waitUntilVisible(titleElectronicCatalogPage);
         return this;
     }
 
+    @Step("Очищение поле для поиска по каталогу.")
     public ElectronicCatalogPage clearBookName() {
         waitUntilVisible(inputBookName).clear();
         return this;
     }
 
+    @Step("Ввод значение для поиска по каталогу.")
     public ElectronicCatalogPage enterBookName(String bookName) {
         inputBookName.sendKeys(bookName);
         return this;
     }
 
+    @Step("Проверка введенного значения для поиска по каталогу.")
+    public ElectronicCatalogPage checkEnteredBookName(String password) {
+        assertEqualsByGetAttribute(inputBookName, password);
+        return this;
+    }
+
+    @Step("Нажатие на кнопку \"Шукати\".")
     public ElectronicCatalogPage clickButtonSearch() {
         waitUntilVisible(buttonSearch).click();
         return this;
     }
 
+    @Step("Проверка найденного значения.")
     public void checkFoundValue(String value) {
-        waitTextToBe(foundValue, value);
+        assertEqualsByGetText(foundValue, value);
     }
 }
